@@ -10,16 +10,8 @@ export default function Home() {
   const resetText = () => setText("");
 
   useEffect(() => {
-    document.writeln(
-      '<meta name="apple-itunes-app" content="app-id=YM3P4AG4MS.com.unifiedpost.banqup.test, app-argument=' +
-        document.location.href +
-        '">'
-    );
-
     setTimeout(() => {
-      window.location.replace(
-        "https://test.links.banqup.com/payment?paymentId=2d5d676a-d266-4edb-84fd-cfe40c123ff2&successRedirect=https%3A%2F%2Fbanqupone.free.beeceptor.com%2Fsuccess-payment-redirect&failureRedirect=https%3A%2F%2Fbanqupone.free.beeceptor.com%2Ffailure-payment-redirect"
-      );
+      window.location.replace("https://open.spotify.com");
     }, 2000);
   }, []);
 
