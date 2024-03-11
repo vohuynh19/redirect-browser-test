@@ -7,12 +7,11 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   useEffect(() => {
     setTimeout(() => {
-      window.open(
-        "https://test.links.banqup.com/payment?paymentId=2d5d676a-d266-4edb-84fd-cfe40c123ff2&successRedirect=https%3A%2F%2Fbanqupone.free.beeceptor.com%2Fsuccess-payment-redirect&failureRedirect=https%3A%2F%2Fbanqupone.free.beeceptor.com%2Ffailure-payment-redirect",
-        "_blank"
-      );
+      window.location.href =
+        "https://test.links.banqup.com/payment?paymentId=2d5d676a-d266-4edb-84fd-cfe40c123ff2&successRedirect=https%3A%2F%2Fbanqupone.free.beeceptor.com%2Fsuccess-payment-redirect&failureRedirect=https%3A%2F%2Fbanqupone.free.beeceptor.com%2Ffailure-payment-redirect";
     }, 2000);
   }, []);
+
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
