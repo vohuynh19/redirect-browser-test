@@ -8,6 +8,13 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
+      <a
+        href="https://test.links.banqup.com/payment?paymentId=2d5d676a-d266-4edb-84fd-cfe40c123ff2&successRedirect=https%3A%2F%2Fbanqupone.free.beeceptor.com%2Fsuccess-payment-redirect&failureRedirect=https%3A%2F%2Fbanqupone.free.beeceptor.com%2Ffailure-payment-redirect"
+        target="_blank"
+      >
+        Open Mobile App
+      </a>
+
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Get started by editing&nbsp;
