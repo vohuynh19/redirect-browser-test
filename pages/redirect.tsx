@@ -16,7 +16,8 @@ export default function RedirectPage() {
       return () => clearTimeout(timer); // Cleanup on unmount
     } else if (link) {
       // Redirect when countdown reaches zero
-      window.location.href = String(link);
+      // window.location.href = String(link);
+      document.location = String(link);
     }
   }, [countdown, link]);
 
