@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,7 +47,7 @@ export default function Home() {
         <button
           onClick={() =>
             window.open(
-              `/api/redirect?url=${encodeURIComponent(text)}`,
+              `api/redirect?url=${encodeURIComponent(text)}`,
               "_blank"
             )
           }
@@ -55,6 +55,16 @@ export default function Home() {
         >
           Server Side Redirect
         </button>
+
+        <button
+          onClick={() =>
+            window.open(`/redirect?link=${encodeURIComponent(text)}`, "_blank")
+          }
+          className="bg-yellow-600 hover:bg-yellow-500 text-white rounded-lg px-4 py-2 transition"
+        >
+          Intercept Page Redirect
+        </button>
+
         <button
           onClick={() => window.location.replace(text)}
           className="bg-blue-600 hover:bg-blue-500 text-white rounded-lg px-4 py-2 transition"

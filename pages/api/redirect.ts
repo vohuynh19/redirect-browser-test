@@ -9,7 +9,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   // Validate and sanitize the URL
   if (targetUrl) {
     setTimeout(() => {
-      console.log("targetUrl", targetUrl);
       res.redirect(302, targetUrl);
     }, 1000);
   } else {
