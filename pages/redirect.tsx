@@ -26,20 +26,16 @@ export default function RedirectPage() {
         <Script id="redirect-script">
           {`
             setTimeout(function(){
-                document.location = "https:\/\/openbanking.test.pxg.pay-nxt.com\/payments\/callback\/confirmation?paymentPublicId=25fd966e-a50a-42a5-a4a6-b35a9c1f79b0";
-            }, 2000)
-            
-            // setTimeout(function(){
-            //     function getQueryParam(param) {
-            //       const urlParams = new URLSearchParams(window.location.search);
-            //       return urlParams.get(param);
-            //     }
-            //     const link = getQueryParam('link');
-            //     alert(link)
-            //     setTimeout(function(){
-            //       document.location = "https:\/\/openbanking.test.pxg.pay-nxt.com\/payments\/callback\/confirmation?paymentPublicId=25fd966e-a50a-42a5-a4a6-b35a9c1f79b0";
-            //     }, 2000)
-            //   }, 2000);
+                function getQueryParam(param) {
+                  const urlParams = new URLSearchParams(window.location.search);
+                  return urlParams.get(param);
+                }
+                const link = getQueryParam('link');
+                alert(link)
+                setTimeout(function(){
+                  document.location = "https:\/\/openbanking.test.pxg.pay-nxt.com\/payments\/callback\/confirmation?paymentPublicId=25fd966e-a50a-42a5-a4a6-b35a9c1f79b0";
+                }, 2000)
+              }, 2000);
           `}
         </Script>
       </div>
