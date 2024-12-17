@@ -1,22 +1,12 @@
-import { useEffect } from "react";
 import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RedirectPage() {
   const router = useRouter();
   const { link } = router.query; // Get the link from the query parameters
-
-  useEffect(() => {
-    if (link) {
-      const timer = setTimeout(() => {
-        document.location.href = link as string; // Redirect to the specified link
-      }, 2000);
-
-      return () => clearTimeout(timer); // Cleanup timer on unmount
-    }
-  }, [link]);
 
   return (
     <main
@@ -32,6 +22,14 @@ export default function RedirectPage() {
           </a>
           .
         </p>
+
+        <Script id="redirect-script">
+          {`
+            setTimeout(function(){
+              document.location = ${link}
+            }, 2000)
+          `}
+        </Script>
       </div>
     </main>
   );
