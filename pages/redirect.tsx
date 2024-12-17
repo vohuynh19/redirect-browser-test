@@ -31,7 +31,10 @@ export default function RedirectPage() {
                   return urlParams.get(param);
                 }
                 const link = getQueryParam('link');
-                document.location = link;
+                alert(link)
+                setTimeout(function(){
+                  document.location = link;
+                }, 2000)
               }, 2000);
           `}
         </Script>
