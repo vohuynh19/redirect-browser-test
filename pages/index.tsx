@@ -6,7 +6,9 @@ import { useRouter } from "next/router";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [is5Loading, setIs5Loading] = useState(false);
+  const [is1Loading, setIs1Loading] = useState(false);
+
   const [text, setText] = useState("");
 
   const resetText = () => setText("");
@@ -62,17 +64,28 @@ export default function Home() {
 
         <button
           onClick={() => {
-            setIsLoading(true);
+            setIs5Loading(true);
             setTimeout(() => {
-              setIsLoading(false);
+              setIs5Loading(false);
               router.replace(`/redirect?link=${encodeURIComponent(text)}`);
             }, 5000);
           }}
           className="bg-yellow-600 hover:bg-yellow-500 text-white rounded-lg px-4 py-2 transition"
         >
-          {isLoading
-            ? "Redirect in next 5 seconds..."
-            : "Intercept Page Redirect by document.location"}
+          {is5Loading ? "Redirect..." : "Redirect in 5 seconds"}
+        </button>
+
+        <button
+          onClick={() => {
+            setIs1Loading(true);
+            setTimeout(() => {
+              setIs1Loading(false);
+              router.replace(`/redirect?link=${encodeURIComponent(text)}`);
+            }, 1000);
+          }}
+          className="bg-yellow-600 hover:bg-yellow-500 text-white rounded-lg px-4 py-2 transition"
+        >
+          {is1Loading ? "Redirect..." : "Redirect in 1 seconds"}
         </button>
 
         <button
