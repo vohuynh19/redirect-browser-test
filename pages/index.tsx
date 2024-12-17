@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,6 +40,16 @@ export default function Home() {
 
       <button onClick={() => (window.location.href = text)}>
         WINDOWN CHANGE HREF
+      </button>
+
+      <br />
+
+      <button
+        onClick={() =>
+          window.open(`/api/redirect?url=${encodeURIComponent(text)}`, "_blank")
+        }
+      >
+        Server side redirect
       </button>
       <br />
       <br />
