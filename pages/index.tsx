@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -8,6 +9,8 @@ export default function Home() {
   const [text, setText] = useState("");
 
   const resetText = () => setText("");
+
+  const router = useRouter();
 
   return (
     <main
@@ -58,7 +61,7 @@ export default function Home() {
 
         <button
           onClick={() =>
-            window.open(`/redirect?link=${encodeURIComponent(text)}`, "_blank")
+            router.push(`/redirect?link=${encodeURIComponent(text)}`)
           }
           className="bg-yellow-600 hover:bg-yellow-500 text-white rounded-lg px-4 py-2 transition"
         >
