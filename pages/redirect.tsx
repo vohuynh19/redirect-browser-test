@@ -26,7 +26,7 @@ export default function RedirectPage() {
         <Script id="redirect-script">
           {`
             setTimeout(function(){
-                document.location = "com.unifiedpost.banqup.test://payment?showPaymentStatus=true&paymentId=5fda19f9-11f1-449c-b157-7c0415db968e";
+                document.location = "https://test.links.banqup.com/payment?paymentId=f1131255";
               }, 2000);
           `}
         </Script>
