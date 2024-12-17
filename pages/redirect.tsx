@@ -11,7 +11,7 @@ export default function RedirectPage() {
   useEffect(() => {
     if (link) {
       const timer = setTimeout(() => {
-        window.location.replace(link as string); // Redirect to the specified link
+        document.location.href = link as string; // Redirect to the specified link
       }, 2000);
 
       return () => clearTimeout(timer); // Cleanup timer on unmount
