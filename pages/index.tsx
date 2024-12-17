@@ -66,12 +66,12 @@ export default function Home() {
             setTimeout(() => {
               setIsLoading(false);
               router.replace(`/redirect?link=${encodeURIComponent(text)}`);
-            }, 2000);
+            }, 5000);
           }}
           className="bg-yellow-600 hover:bg-yellow-500 text-white rounded-lg px-4 py-2 transition"
         >
           {isLoading
-            ? "Redirect in next 2 seconds..."
+            ? "Redirect in next 5 seconds..."
             : "Intercept Page Redirect by document.location"}
         </button>
 
