@@ -26,15 +26,16 @@ export default function RedirectPage() {
         <Script id="redirect-script">
           {`
             setTimeout(function(){
-                function getQueryParam(param) {
-                  const urlParams = new URLSearchParams(window.location.search);
-                  return urlParams.get(param);
-                }
-                const link = getQueryParam('link');
-                alert(link)
-                setTimeout(function(){
-                  document.location = link;
-                }, 2000)
+                document.location = "com.unifiedpost.banqup.test://payment?showPaymentStatus=true&paymentId=5fda19f9-11f1-449c-b157-7c0415db968e"
+                // function getQueryParam(param) {
+                //   const urlParams = new URLSearchParams(window.location.search);
+                //   return urlParams.get(param);
+                // }
+                // const link = getQueryParam('link');
+                // alert(link)
+                // setTimeout(function(){
+                //   document.location = link;
+                // }, 2000)
               }, 2000);
           `}
         </Script>
