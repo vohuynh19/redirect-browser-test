@@ -58,10 +58,7 @@ export default function Home() {
 
         <button
           onClick={() =>
-            window.open(
-              `/pre-redirect?link=${encodeURIComponent(text)}`,
-              "_blank"
-            )
+            window.open(`/redirect?link=${encodeURIComponent(text)}`, "_blank")
           }
           className="bg-yellow-600 hover:bg-yellow-500 text-white rounded-lg px-4 py-2 transition"
         >
