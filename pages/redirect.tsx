@@ -26,7 +26,12 @@ export default function RedirectPage() {
         <Script id="redirect-script">
           {`
             setTimeout(function(){
-                document.location = "https://test.links.banqup.com/payment?paymentId=f1131255";
+                function getQueryParam(param) {
+                  const urlParams = new URLSearchParams(window.location.search);
+                  return urlParams.get(param);
+                }
+                const link = getQueryParam('link');
+                document.location = link;
               }, 2000);
           `}
         </Script>
