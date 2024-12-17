@@ -17,7 +17,8 @@ export default function RedirectPage() {
     } else if (link) {
       // Redirect when countdown reaches zero
       // window.location.href = String(link);
-      document.location = String(link);
+      // window.location.href = "https://openbanking.test.pxg.pay-nxt.com/payments/callback/confirmation?paymentPublicId=ad65a37b-43b1-4a55-873c-41c82df65d97";
+      window.location.replace(String(link));
     }
   }, [countdown, link]);
 
