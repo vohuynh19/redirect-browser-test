@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RedirectPage() {
   const router = useRouter();
   const { link } = router.query;
-  const [countdown, setCountdown] = useState(10); // Set initial countdown value
+  const [countdown, setCountdown] = useState(2); // Set initial countdown value
 
   useEffect(() => {
     if (countdown > 0) {
