@@ -1,0 +1,15 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1F2937"/>
+    </linearGradient>
+    <linearGradient id="text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="280" font-family="system-ui, -apple-system" font-size="72" font-weight="bold" text-anchor="middle" fill="url(#text)">TryRedirect</text>
+  <text x="600" y="360" font-family="system-ui, -apple-system" font-size="32" text-anchor="middle" fill="#9CA3AF">Browser Redirect Simulation Tool</text>
+</svg>

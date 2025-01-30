@@ -1,119 +1,126 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+import Navigation from "@/components/Navigation";
+import RedirectForm from "@/components/RedirectForm";
+import GuideSection from "@/components/GuideSection";
+import WhySection from "@/components/WhySection";
+import ContactSection from "@/components/ContactSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [is5Loading, setIs5Loading] = useState(false);
-  const [is1Loading, setIs1Loading] = useState(false);
-
-  const [text, setText] = useState("");
-
-  const resetText = () => setText("");
-
-  const router = useRouter();
-
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 bg-gray-900 text-white ${inter.className}`}
+    <div
+      className={`min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white ${inter.className}`}
     >
-      <form className="flex flex-col items-center w-full max-w-md">
-        <label className="mb-4 text-lg font-bold text-green-400">
-          Redirect Link
-        </label>
-        <input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Enter link"
-          className="border border-gray-700 bg-gray-800 rounded-lg p-3 mb-4 w-full text-white placeholder-gray-400"
-        />
-        <div className="flex space-x-2">
-          <button
-            type="button"
-            onClick={resetText}
-            className="bg-red-600 hover:bg-red-500 text-white rounded-lg px-4 py-2 transition"
+      <Navigation />
+
+      {/* Hero Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="py-20 px-4 relative overflow-hidden"
+      >
+        {/* Decorative Elements */}
+        <motion.div
+          className="absolute top-0 left-0 w-64 h-64 -translate-x-1/2 -translate-y-1/2"
+          initial={{ rotate: 0, scale: 0.8, opacity: 0.1 }}
+          animate={{ rotate: 360, scale: 1, opacity: 0.15 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        >
+          <svg viewBox="0 0 100 100" className="w-full h-full text-green-400">
+            <path d="M50 0 L100 50 L50 100 L0 50Z" fill="currentColor" />
+          </svg>
+        </motion.div>
+
+        <motion.div
+          className="absolute top-1/2 right-0 w-48 h-48 translate-x-1/2"
+          initial={{ rotate: 0, scale: 0.8, opacity: 0.1 }}
+          animate={{ rotate: -360, scale: 1, opacity: 0.15 }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        >
+          <svg viewBox="0 0 100 100" className="w-full h-full text-emerald-400">
+            <circle cx="50" cy="50" r="45" fill="currentColor" />
+          </svg>
+        </motion.div>
+
+        <div className="container mx-auto text-center relative z-10">
+          <div className="h-4"></div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-5xl font-bold mb-6 mt-8 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent"
           >
-            RESET
-          </button>
-          <a
-            href={text}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-600 hover:bg-green-500 text-white rounded-lg px-4 py-2 transition"
-          >
-            PRESS LINK
-          </a>
+            Browser Redirect Simulation
+          </motion.h1>
+          <p className="text-xl mb-16 text-gray-300">
+            Test different browser redirect methods in a safe environment
+          </p>
+
+          <RedirectForm />
+
+          {/* Floating Dots */}
+          <div className="absolute inset-0 pointer-events-none">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-2 h-2 bg-green-400 rounded-full"
+                initial={{
+                  x: Math.random() * 100 + "%",
+                  y: Math.random() * 100 + "%",
+                  opacity: 0,
+                }}
+                animate={{
+                  y: ["0%", "100%"],
+                  opacity: [0, 1, 0],
+                }}
+                transition={{
+                  duration: Math.random() * 5 + 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                  delay: Math.random() * 5,
+                }}
+                style={{
+                  left: Math.random() * 100 + "%",
+                }}
+              />
+            ))}
+          </div>
         </div>
-      </form>
+      </motion.section>
 
-      <div className="flex flex-col items-center mt-6 space-y-2">
-        <button
-          onClick={() =>
-            window.open(
-              `api/redirect?url=${encodeURIComponent(text)}`,
-              "_blank"
-            )
-          }
-          className="bg-yellow-600 hover:bg-yellow-500 text-white rounded-lg px-4 py-2 transition"
-        >
-          Server Side Redirect
-        </button>
+      <GuideSection />
+      <WhySection />
+      <ContactSection />
 
-        <button
-          onClick={() => {
-            setIs5Loading(true);
-            setTimeout(() => {
-              setIs5Loading(false);
-              router.replace(`/redirect?link=${encodeURIComponent(text)}`);
-            }, 5000);
-          }}
-          className="bg-yellow-600 hover:bg-yellow-500 text-white rounded-lg px-4 py-2 transition"
-        >
-          {is5Loading ? "Redirect..." : "Redirect in 5 seconds"}
-        </button>
-
-        <button
-          onClick={() => {
-            setIs1Loading(true);
-            setTimeout(() => {
-              setIs1Loading(false);
-              router.replace(`/redirect?link=${encodeURIComponent(text)}`);
-            }, 1000);
-          }}
-          className="bg-yellow-600 hover:bg-yellow-500 text-white rounded-lg px-4 py-2 transition"
-        >
-          {is1Loading ? "Redirect..." : "Redirect in 1 seconds"}
-        </button>
-
-        <button
-          onClick={() => window.location.replace(text)}
-          className="bg-blue-600 hover:bg-blue-500 text-white rounded-lg px-4 py-2 transition"
-        >
-          window.location.replace
-        </button>
-        <button
-          onClick={() => (window.location.href = text)}
-          className="bg-purple-600 hover:bg-purple-500 text-white rounded-lg px-4 py-2 transition"
-        >
-          window.location.href
-        </button>
-      </div>
-
-      <footer className="mt-10 text-center">
-        <p className="text-sm">
-          Developed by{" "}
-          <a
-            href="https://github.com/vohuynh19"
-            className="text-green-400 hover:underline"
-          >
-            vohuynh19
-          </a>
-          . Check out my GitHub for more amazing projects!
-        </p>
+      {/* Footer */}
+      <footer className="bg-gray-800 py-8 px-4">
+        <div className="container mx-auto text-center">
+          <div className="flex justify-center space-x-6 mb-4">
+            <a
+              href="https://github.com/vohuynh19"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 hover:text-green-300"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/brycevo19"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 hover:text-green-300"
+            >
+              LinkedIn
+            </a>
+          </div>
+          <p className="text-gray-400">
+            &copy; 2024 TryRedirect. All rights reserved.
+          </p>
+        </div>
       </footer>
-    </main>
+    </div>
   );
 }
