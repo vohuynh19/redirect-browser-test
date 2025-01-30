@@ -14,7 +14,7 @@ export default function Navigation() {
         <motion.a
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          href="https://github.com/vohuynh19"
+          href="https://github.com/vohuynh19/redirect-browser-test"
           target="_blank"
           rel="noopener noreferrer"
           className="text-green-400 hover:text-green-300 transition-colors duration-300"

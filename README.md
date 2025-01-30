@@ -1,40 +1,100 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
 
-## Getting Started
+# TryRedirect - Browser Redirect Simulation Tool
 
-First, run the development server:
+[![Next.js](https://img.shields.io/badge/Next.js-14.1.3-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3.0-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+🔄 A powerful tool for testing and simulating browser redirects
+
+[View Demo](https://www.tryredirect.net/) | [Report Bug](https://github.com/vohuynh19/redirect-browser-test/issues) | [Request Feature](https://github.com/vohuynh19/redirect-browser-test/issues)
+
+</div>
+
+## 🎯 About The Project
+
+TryRedirect is a comprehensive web application designed to help client-side developers test and simulate various browser redirect scenarios. Whether you're implementing authentication flows, payment redirects, or complex navigation patterns, this tool provides a safe and controlled environment for testing different redirect methods.
+
+### ✨ Key Features
+
+- 🕒 **Delayed Redirects**: Test redirects with customizable timing delays
+- 🔄 **Multiple Redirect Types**: Support for both client-side and server-side redirects
+- 📊 **Visual Feedback**: Beautiful UI with countdown and progress indicators
+- 🛠️ **Developer-Friendly**: Easy-to-use interface with detailed redirect information
+- 🔒 **Safe Testing Environment**: Test redirects without affecting production systems
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or later
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/redirect-browser-test.git
+```
+
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Create a local environment file
+```bash
+cp .env.example .env.local
+```
+
+### 🏃‍♂️ Running Locally
+
+1. Start the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+The application will be running in development mode with hot-reload enabled. Any changes you make to the source files will automatically refresh the browser.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 📖 Usage Examples
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Basic Redirect
+```typescript
+// Example of using the redirect API
+const response = await fetch('/api/redirect?url=https://example.com&redirectDelay=5');
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Testing Different Scenarios
+- Immediate redirects
+- Delayed redirects with countdown
+- Server-side processing simulation
+- Error handling and fallback redirects
 
-## Learn More
+## 🛠️ Built With
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js](https://nextjs.org/) - The React framework for production
+- [TypeScript](https://www.typescriptlang.org/) - For type-safe code
+- [Tailwind CSS](https://tailwindcss.com/) - For styling
+- [Framer Motion](https://www.framer.com/motion/) - For animations
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Distributed under the MIT License. See `LICENSE` for more information.
 
-## Deploy on Vercel
+## 🤝 Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request

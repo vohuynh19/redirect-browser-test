@@ -98,12 +98,24 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-800 py-8 px-4">
         <div className="container mx-auto text-center">
-          <div className="flex justify-center space-x-6 mb-4">
+          <p className="text-gray-400 mb-2">
+            &copy; 2024 TryRedirect. All rights reserved.
+          </p>
+          <p className="text-gray-500 text-sm mt-4">
+            Created by{" "}
+            <a
+              href="https://linkedin.com/in/brycevo19"
+              className="text-green-400 hover:text-green-300"
+            >
+              Bryce Vo
+            </a>
+          </p>
+          <p className="text-gray-500 text-sm mt-2">
             <a
               href="https://github.com/vohuynh19"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-400 hover:text-green-300"
+              className="text-green-400 hover:text-green-300 mr-4"
             >
               GitHub
             </a>
@@ -115,9 +127,6 @@ export default function Home() {
             >
               LinkedIn
             </a>
-          </div>
-          <p className="text-gray-400">
-            &copy; 2024 TryRedirect. All rights reserved.
           </p>
         </div>
       </footer>
