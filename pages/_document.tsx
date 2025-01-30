@@ -5,7 +5,8 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <title>
-          Web Redirect Simulation Tool | Test Browser Redirects | TryRedirect
+          Browser Redirect Simulation Tool | Test Browser Redirects |
+          TryRedirect
         </title>
         <meta
           name="description"

@@ -31,9 +31,9 @@ export default function RedirectPage() {
     <main
       className={`flex min-h-screen flex-col items-center justify-center p-24 bg-gray-900 text-white ${inter.className}`}
     >
-      <div className="text-center relative">
+      <div className="text-center relative z-10">
         <motion.div
-          className="absolute -inset-4 rounded-full border-2 border-green-400"
+          className="absolute -inset-4 rounded-full border-2 border-green-400 pointer-events-none"
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.3, 0.6, 0.3],
@@ -113,8 +113,11 @@ export default function RedirectPage() {
         >
           If nothing happens,{" "}
           <a
-            href={link as string}
+            href={link ? decodeURIComponent(String(link)) : "#"}
             className="text-green-400 hover:underline hover:text-green-300 transition-colors"
+            onClick={(e) => {
+              if (!link) e.preventDefault();
+            }}
           >
             click here
           </a>
