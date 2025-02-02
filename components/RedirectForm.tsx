@@ -8,6 +8,19 @@ export default function RedirectForm() {
   const [redirectDelay, setRedirectDelay] = useState<number>(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [processingDelay, setProcessingDelay] = useState<number>(0);
+  const [showCopySuccess, setShowCopySuccess] = useState(false);
+
+  const handleCopyLink = () => {
+    const redirectUrl = `${
+      window.location.origin
+    }/api/redirect?url=${encodeURIComponent(
+      text
+    )}&processingDelay=${processingDelay}&redirectDelay=${redirectDelay}`;
+    navigator.clipboard.writeText(redirectUrl).then(() => {
+      setShowCopySuccess(true);
+      setTimeout(() => setShowCopySuccess(false), 2000);
+    });
+  };
 
   const redirectOptions = [
     { value: "direct", label: "Direct (location.href)" },
@@ -42,12 +55,49 @@ export default function RedirectForm() {
       className="max-w-md mx-auto bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-gray-700"
     >
       <div className="mb-6">
-        <label
-          htmlFor="redirectUrl"
-          className="block mb-2 text-green-50 text-left"
-        >
-          Redirect URL
-        </label>
+        <div className="flex items-center gap-2 mb-2">
+          <label htmlFor="redirectUrl" className="text-green-50 text-left">
+            Redirect URL
+          </label>
+          <div className="group relative">
+            <button
+              type="button"
+              className="text-green-400 hover:text-green-300 transition-colors duration-300 focus:outline-none"
+              aria-label="URL format information"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4" />
+                <path d="M12 8h.01" />
+              </svg>
+            </button>
+            <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute left-1/2 -translate-x-1/2 top-6 w-64 sm:w-80 max-w-sm p-4 bg-gray-800 rounded-lg border border-gray-600 shadow-lg transition-all duration-200 z-20 text-left">
+              <h4 className="font-semibold text-green-400 mb-2">
+                Supported URL Formats:
+              </h4>
+              <ul className="space-y-2 text-sm text-gray-300">
+                <li>
+                  <span className="text-green-400">Deep Links:</span>{" "}
+                  myapp://path/to/content
+                </li>
+                <li>
+                  <span className="text-green-400">HTTPS Links:</span>{" "}
+                  https://example.com/page
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <input
           id="redirectUrl"
           type="text"
@@ -167,7 +217,7 @@ export default function RedirectForm() {
                       onClick={() =>
                         setRedirectDelay((prev) => Math.max(0, prev + 1))
                       }
-                      className="flex-1 px-4 hover:bg-gray-600/50 text-green-400 transition-colors duration-200 rounded-tr-lg"
+                      className="flex-1 px-2 hover:bg-gray-600/50 text-green-400 transition-colors duration-200 rounded-tr-lg text-xs"
                     >
                       ▲
                     </button>
@@ -176,7 +226,7 @@ export default function RedirectForm() {
                       onClick={() =>
                         setRedirectDelay((prev) => Math.max(0, prev - 1))
                       }
-                      className="flex-1 px-4 hover:bg-gray-600/50 text-green-400 transition-colors duration-200 rounded-br-lg border-t border-gray-600"
+                      className="flex-1 px-2 hover:bg-gray-600/50 text-green-400 transition-colors duration-200 rounded-br-lg border-t border-gray-600 text-xs"
                     >
                       ▼
                     </button>
@@ -215,7 +265,7 @@ export default function RedirectForm() {
                       onClick={() =>
                         setProcessingDelay((prev) => Math.max(0, prev + 1))
                       }
-                      className="flex-1 px-4 hover:bg-gray-600/50 text-green-400 transition-colors duration-200 rounded-tr-lg"
+                      className="flex-1 px-2 hover:bg-gray-600/50 text-green-400 transition-colors duration-200 rounded-tr-lg text-xs"
                     >
                       ▲
                     </button>
@@ -224,7 +274,7 @@ export default function RedirectForm() {
                       onClick={() =>
                         setProcessingDelay((prev) => Math.max(0, prev - 1))
                       }
-                      className="flex-1 px-4 hover:bg-gray-600/50 text-green-400 transition-colors duration-200 rounded-br-lg border-t border-gray-600"
+                      className="flex-1 px-2 hover:bg-gray-600/50 text-green-400 transition-colors duration-200 rounded-br-lg border-t border-gray-600 text-xs"
                     >
                       ▼
                     </button>
@@ -236,14 +286,41 @@ export default function RedirectForm() {
         </motion.div>
       )}
 
-      <motion.button
-        onClick={handleRedirect}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        className="w-full p-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 rounded-lg font-bold transition-all duration-300 shadow-lg text-green-50"
-      >
-        Redirect Now
-      </motion.button>
+      <div className="flex gap-4">
+        <motion.button
+          onClick={handleRedirect}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="flex-1 p-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 rounded-lg font-bold transition-all duration-300 shadow-lg text-green-50"
+        >
+          Redirect Now
+        </motion.button>
+
+        <motion.button
+          onClick={handleCopyLink}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="p-4 bg-gray-700 hover:bg-gray-600 rounded-lg font-bold transition-all duration-300 shadow-lg text-green-50 relative overflow-hidden"
+        >
+          {showCopySuccess ? (
+            <motion.span
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+            >
+              Copied!
+            </motion.span>
+          ) : (
+            <motion.span
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+            >
+              Copy Link
+            </motion.span>
+          )}
+        </motion.button>
+      </div>
     </motion.div>
   );
 }

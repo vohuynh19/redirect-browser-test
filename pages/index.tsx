@@ -53,10 +53,10 @@ export default function Home() {
             transition={{ delay: 0.3 }}
             className="text-5xl font-bold mb-6 mt-8 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent"
           >
-            Browser Redirect Simulation
+            Server-Side Redirect Testing Made Easy
           </motion.h1>
           <p className="text-xl mb-16 text-gray-300">
-            Test different browser redirect methods in a safe environment
+            Test server-side redirects without setting up backend endpoints
           </p>
 
           <RedirectForm />

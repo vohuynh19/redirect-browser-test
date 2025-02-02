@@ -36,13 +36,13 @@ export default function WhySection() {
             className="p-6 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700 hover:border-green-400/50 transition-colors duration-300"
           >
             <h3 className="text-xl font-bold mb-4 text-green-400">
-              Safe Testing
+              No Backend Required
             </h3>
             <p className="text-gray-300">
-              Experiment with different redirect methods in a controlled
-              environment before implementing them in your production
-              applications. Understand the behavior and implications of each
-              approach without risk.
+              Test deeplinks, app links, and universal links without setting up
+              endpoints. Save development time by instantly simulating various
+              redirect scenarios in a controlled environment, perfect for
+              frontend prototyping and testing.
             </p>
           </motion.div>
           <motion.div
@@ -52,12 +52,13 @@ export default function WhySection() {
             className="p-6 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700 hover:border-green-400/50 transition-colors duration-300"
           >
             <h3 className="text-xl font-bold mb-4 text-green-400">
-              Multiple Methods
+              Comprehensive Testing
             </h3>
             <p className="text-gray-300">
-              Compare different redirect techniques including client-side,
-              server-side, and delayed redirects. Understand the pros and cons
-              of each method to make informed decisions for your projects.
+              Test all redirect types including client-side navigation, URL
+              replacements, and timed redirects. Perfect for validating mobile
+              deep linking behavior and cross-platform navigation flows before
+              implementation.
             </p>
           </motion.div>
           <motion.div
@@ -67,12 +68,13 @@ export default function WhySection() {
             className="p-6 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700 hover:border-green-400/50 transition-colors duration-300"
           >
             <h3 className="text-xl font-bold mb-4 text-green-400">
-              Educational
+              Developer-Friendly
             </h3>
             <p className="text-gray-300">
-              Learn about browser navigation, URL handling, and various redirect
-              mechanisms. Perfect for developers looking to understand web
-              navigation patterns and best practices.
+              Visual countdown timers, progress indicators, and detailed
+              redirect information help you understand exactly how your
+              redirects behave. Ideal for debugging and optimizing user
+              navigation experiences.
             </p>
           </motion.div>
         </div>
