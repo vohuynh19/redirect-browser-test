@@ -99,7 +99,7 @@ export default function Home() {
       <footer className="bg-gray-800 py-8 px-4">
         <div className="container mx-auto text-center">
           <p className="text-gray-400 mb-2">
-            &copy; 2024 TryRedirect. All rights reserved.
+            &copy; 2025 TryRedirect. All rights reserved.
           </p>
           <p className="text-gray-500 text-sm mt-4">
             Created by{" "}
