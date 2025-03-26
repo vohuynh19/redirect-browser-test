@@ -7,8 +7,7 @@
         "paths": [
           "NOT /__/auth/action/",
           "NOT /__/auth/handler/",
-          "NOT /_/*",
-          "/*"
+          "NOT /_/*"
         ]
       }
     ]
