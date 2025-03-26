@@ -5,9 +5,7 @@
       {
         "appID": "YM3P4AG4MS.com.unifiedpost-payments.myid.test",
         "paths": [
-          "NOT /__/auth/action/",
-          "NOT /__/auth/handler/",
-          "NOT /_/*"
+          "oauth/redirect"
         ]
       }
     ]
